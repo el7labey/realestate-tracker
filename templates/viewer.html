@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>Viewer</title>
+</head>
+<body>
+<h3>آخر تحديثات المعاملات</h3>
+<ul>
+{% for d in deals %}
+  <li>{{ d.client_name }} – {{ d.bank_name }} – {{ d.last_update }}</li>
+{% endfor %}
+</ul>
+</body>
+</html>
