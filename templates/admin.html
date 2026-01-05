@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin</title>
+  <style>
+    body { font-family:Arial; padding:20px; background:#f5f6f7; }
+    table { width:100%; border-collapse:collapse; background:#fff; }
+    th,td { border:1px solid #ddd; padding:8px; text-align:center; }
+    th { background:#2c3e50; color:#fff; }
+    input { padding:6px; }
+  </style>
+</head>
+<body>
+
+<h3>إضافة معاملة جديدة</h3>
+<form method="post">
+  <input name="client_name" placeholder="اسم العميل" required>
+  <input name="bank_name" placeholder="البنك" required>
+  <input name="employee_name" placeholder="الموظف" required>
+  <input name="last_update" placeholder="آخر تحديث" required>
+  <button>حفظ</button>
+</form>
+
+<hr>
+
+<table>
+<tr>
+  <th>العميل</th><th>البنك</th><th>الموظف</th><th>آخر تحديث</th><th>التاريخ</th>
+</tr>
+{% for d in deals %}
+<tr>
+  <td>{{ d.client_name }}</td>
+  <td>{{ d.bank_name }}</td>
+  <td>{{ d.employee_name }}</td>
+  <td>{{ d.last_update }}</td>
+  <td>{{ d.update_date.strftime('%Y-%m-%d') }}</td>
+</tr>
+{% endfor %}
+</table>
+
+</body>
+</html>
