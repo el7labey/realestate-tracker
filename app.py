@@ -62,8 +62,7 @@ def logout():
     return redirect(url_for("login"))
 
 # ===== First-time setup =====
-@app.before_first_request
-def setup():
+with app.app_context():
     db.create_all()
     if not User.query.filter_by(username="abdallah").first():
         admin_pass = bcrypt.hashpw(b"admin", bcrypt.gensalt()).decode("utf-8")
